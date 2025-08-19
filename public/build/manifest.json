@@ -1,0 +1,37 @@
+{
+  "resources/css/app.css": {
+    "file": "assets/app-CKn_cCXj.css",
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/fonts/Ak-Bold.eot": {
+    "file": "assets/Ak-Bold-BU8dhGRs.eot",
+    "src": "resources/fonts/Ak-Bold.eot"
+  },
+  "resources/fonts/Ak-Bold.ttf": {
+    "file": "assets/Ak-Bold-DIPYr49k.ttf",
+    "src": "resources/fonts/Ak-Bold.ttf"
+  },
+  "resources/fonts/Ak-Bold.woff": {
+    "file": "assets/Ak-Bold-CQ0dUa49.woff",
+    "src": "resources/fonts/Ak-Bold.woff"
+  },
+  "resources/fonts/Ak-Regular.eot": {
+    "file": "assets/Ak-Regular-cFvlWk5e.eot",
+    "src": "resources/fonts/Ak-Regular.eot"
+  },
+  "resources/fonts/Ak-Regular.ttf": {
+    "file": "assets/Ak-Regular-BI6ShyDu.ttf",
+    "src": "resources/fonts/Ak-Regular.ttf"
+  },
+  "resources/fonts/Ak-Regular.woff": {
+    "file": "assets/Ak-Regular-D_eBGj1u.woff",
+    "src": "resources/fonts/Ak-Regular.woff"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-DnXf5Yo4.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  }
+}

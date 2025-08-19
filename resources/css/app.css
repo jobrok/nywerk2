@@ -1,0 +1,125 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@source '../../vendor/livewire/flux-pro/stubs/**/*.blade.php';
+@source '../../vendor/livewire/flux/stubs/**/*.blade.php';
+@source '../../vendor/noerd/noerd/resources/views/**/*.blade.php';
+@source '../../vendor/noerd/cms/resources/views/**/*.blade.php';
+@config '../../tailwind.config.js';
+
+@font-face {
+    font-family: ak;
+    src: url(../fonts/Ak-Regular.eot);
+    src: url(../fonts/Ak-Regular.eot?#iefix) format("embedded-opentype"), url(../fonts/Ak-Regular.woff) format("woff"), url(../fonts/Ak-Regular.ttf) format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    unicode-range: U+0020-FB02;
+    font-display: swap
+}
+
+@font-face {
+    font-family: ak;
+    src: url(../fonts/Ak-Bold.eot);
+    src: url(../fonts/Ak-Bold.eot?#iefix) format("embedded-opentype"), url(../fonts/Ak-Bold.woff) format("woff"), url(../fonts/Ak-Bold.ttf) format("truetype");
+    font-weight: 700;
+    font-style: normal;
+    font-stretch: normal;
+    unicode-range: U+0020-FB02;
+    font-display: swap
+}
+
+body {
+    font-family: ak, serif !important;
+}
+
+.collapsible {
+    opacity: 0;
+    transition: all .4s;
+    pointer-events: none;
+}
+
+.collapsible.is-open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.subheadline {
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    font-weight: 700;
+}
+
+.cd-words-wrapper {
+    display: inline-block;
+    position: relative;
+}
+.cd-words-wrapper b {
+    display: inline-block;
+    position: absolute;
+    white-space: nowrap;
+    left: 0;
+    top: 0;
+}
+.cd-words-wrapper b.is-visible {
+    position: relative;
+}
+.no-js .cd-words-wrapper b {
+    opacity: 0;
+}
+.no-js .cd-words-wrapper b.is-visible {
+    opacity: 1;
+}
+
+
+/* --------------------------------
+
+xloading-bar
+
+-------------------------------- */
+.cd-headline.loading-bar span {
+    padding: .2em 0;
+}
+.loading-after {
+    display: inline-block;
+}
+
+.cd-headline.loading-bar .cd-words-wrapper {
+    overflow: hidden;
+    vertical-align: top;
+}
+.cd-headline.loading-bar .cd-words-wrapper::after {
+    /* loading bar */
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background: #fff;
+    z-index: 2;
+    -webkit-transition: width 0.3s -0.1s;
+    -moz-transition: width 0.3s -0.1s;
+    transition: width 0.3s -0.1s;
+}
+.cd-headline.loading-bar .cd-words-wrapper.is-loading::after {
+    width: 100%;
+    -webkit-transition: width 3s;
+    -moz-transition: width 3s;
+    transition: width 3s;
+}
+.cd-headline.loading-bar b {
+    top: .2em;
+    opacity: 0;
+    -webkit-transition: opacity 0.3s;
+    -moz-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+}
+.cd-headline.loading-bar b.is-visible {
+    opacity: 1;
+    top: 0;
+}
