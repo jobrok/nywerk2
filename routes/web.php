@@ -6,24 +6,20 @@ Route::get('/', function () {
     return view('welcome');
 })->name('start');
 
-Route::get('/leistungen', function () {
-    return view('welcome');
-})->name('leistungen');
+Route::get('/services', function () {
+    return view('services');
+})->name('services');
 
-Route::get('/projekte', function () {
-    return view('welcome');
-})->name('projekte');
+Route::get('/use-cases', function () {
+    return view('use-cases');
+})->name('use-cases');
 
 Route::get('/impressum', function () {
-    return view('welcome');
+    return view('impressum');
 })->name('impressum');
 
 Route::get('/datenschutz', function () {
-    return view('welcome');
+    return view('datenschutz');
 })->name('datenschutz');
-
-Route::get('/kontakt', function () {
-    return view('welcome');
-})->name('kontakt');
 
 

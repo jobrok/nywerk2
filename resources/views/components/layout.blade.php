@@ -18,59 +18,83 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 </head>
-<body class="min-h-full overflow-x-hidden antialiased" x-data="{showNavi: false}">
+<body class="min-h-full overflow-x-hidden antialiased"
+      x-data="{showNavi: false, showContactModal: false, showProjectModal: false, projectTitle: '', projectContent: ''}">
 
 <x-navi></x-navi>
 
-<div class="relative h-full w-full transition-all duration-300 ease-in-out"
+<div class="relative h-full w-full transition-all duration-300 ease-in-out -mb-[20px]"
      style="-webkit-clip-path: polygon(0 0, 100% 0, 100% calc(100% - 4vw), 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - 4vw), 0 100%);"
      :class="{'mt-[561px]': showNavi}">
 
-    <div class="absolute inset-0 z-0 bg-[url(http://nywerk2.test/img/bg-head.jpg)] bg-cover bg-center filter grayscale brightness-50"></div>
+    <div class="absolute inset-0 z-0 bg-black bg-cover bg-center filter grayscale brightness-50"></div>
 
-    <div class="relative z-10 mx-auto max-w-7xl border-l border-gray-600 px-6 lg:px-16 w-full text-white pb-52 pt-60">
+    <div
+        class="relative z-10 mx-auto max-w-7xl md:border-l border-neutral-700 mt-[130px] px-6 lg:px-16 w-full text-white pb-72 pt-72">
         <div class="lg:max-w-4xl">
-            <div class="relative cd-headline loading-bar text-3xl lg:text-5xl">
-                <div class="absolute inset-y-0 -left-6 lg:-left-16 border-l-[3px] border-white pointer-events-none"></div>
+            <div class="relative cd-headline loading-bar text-3xl lg:text-5xl" x-data="{
+                currentWordIndex: 0,
+                words: ['Engineering', 'Design', 'Architecture', 'Consulting'],
+                isLoading: false
+            }" x-init="
+                setTimeout(() => {
+                    isLoading = true;
+                    setTimeout(() => {
+                        currentWordIndex = (currentWordIndex + 1) % words.length;
+                        isLoading = false;
+                        setTimeout(() => { isLoading = true }, 800);
+                    }, 3000);
+                }, 800);
+
+                setInterval(() => {
+                    setTimeout(() => {
+                        currentWordIndex = (currentWordIndex + 1) % words.length;
+                        isLoading = false;
+                        setTimeout(() => { isLoading = true }, 800);
+                    }, 3000);
+                }, 3800)
+            ">
+                <div
+                    class="absolute inset-y-0 -left-6 lg:-left-16 border-l-[3px] border-white pointer-events-none hidden md:block"></div>
                 <span class="loading-after antialiased text-white">
                     Software
-                    <span class="cd-words-wrapper -mt-[10px]">
-                        <b class="is-visible font-normal">Engineering</b>
-                        <b class="font-normal">Design</b>
-                        <b class="font-normal">Architecture</b>
-                        <b class="font-normal">Consulting</b>
+                    <span class="cd-words-wrapper -mt-[10px]" :class="{ 'is-loading': isLoading }">
+                        <b class="font-normal is-visible" x-text="words[currentWordIndex]"></b>
                     </span>
                     Studio
                 </span>
             </div>
-            <div class="text-lg pt-8">
-                We create innovative software solutions that captivate users and drive business growth. Leveraging our deep expertise in software engineering and our passion for product development and design, we bring bold ideas to life.
+            <div class="text-xl/9 pt-8">
+
+                We build and launch custom software products for impactful business solutions.
             </div>
 
-                    {{--
-                <div class="text-2xl pt-3 flex">
-                    <span class="cd-words-wrapper mr-1.5">
-                        <b class="is-visible font-normal">Scalable</b>
-                        <b class="font-normal">Customized</b>
-                        <b class="font-normal">Extendable</b>
-                    </span>
-                    <span class="flex">
-                        Cloud Software and Product Creation
-                    </span>
-                </div>
-                --}}
-            
         </div>
+
+        {{--
+    <div class="text-2xl pt-3 flex">
+        <span class="cd-words-wrapper mr-1.5">
+            <b class="is-visible font-normal">Scalable</b>
+            <b class="font-normal">Customized</b>
+            <b class="font-normal">Extendable</b>
+        </span>
+        <span class="flex">
+            Cloud Software and Product Creation
+        </span>
     </div>
+    --}}
+
+    </div>
+</div>
 </div>
 
 {{$slot}}
 
 <footer class="bg-black">
 
-    <div class="mx-auto max-w-7xl border-l border-gray-600 px-6 lg:px-16 w-full text-white py-16">
-        <div class="grid md:grid-cols-4 gap-12 pt-8 ">
+    <div class="mx-auto max-w-7xl md:border-l border-neutral-700 px-6 lg:px-16 w-full text-white py-16">
+        <div class="grid md:grid-cols-4 gap-12">
             <div class="col-span-4">
                 <span class="text-5xl">nywerk</span>
                 <div class="leading-8 pt-2">
@@ -91,20 +115,21 @@
             </div>
         </div>
 
-        <div class="border-t border-gray-600 pt-8 flex w-full mt-24">
+
+    </div>
+
+    <div class="border-t  text-white border-neutral-700 pt-14 ">
+
+        <div class="mx-auto max-w-7xl px-6 lg:px-16 pb-14 flex w-full ">
 
             <div class="flex">
-                <a class="hidden md:block relative mr-4" href="{{route('leistungen')}}">
+                <a class="hidden md:block relative mr-4" href="{{route('services')}}">
                     <span>Leistungen</span>
                     <span class="slider"></span>
                 </a>
 
-                <a class="hidden md:block relative mx-4" href="{{route('projekte')}}">
-                    <span>Projekte</span>
-                    <span class="slider"></span>
-                </a>
-                <a class="hidden md:block relative mx-4" href="{{route('kontakt')}}">
-                    <span>Kontakt</span>
+                <a class="hidden md:block relative mx-4" href="{{route('use-cases')}}">
+                    <span>Use Cases</span>
                     <span class="slider"></span>
                 </a>
                 <a class="relative mr-4 md:mx-4 text-sm md:text-base" href="{{route('datenschutz')}}">
@@ -118,7 +143,6 @@
             </div>
 
             <ul role="list" class="flex ml-auto gap-x-6 text-white">
-
                 <li>
                     <a aria-label="Instagram" class="transition hover:text-neutral-200"
                        href="https://instagram.com">
@@ -151,16 +175,10 @@
                 </li>
             </ul>
         </div>
-
-
     </div>
 
 </footer>
 
-
-<script src="/js/jquery-2.1.1.js"></script>
-<script src="/js/main.js"></script> <!-- Resource jQuery -->
-<script src="/js/modernizr.js"></script> <!-- Modernizr -->
 
 </body>
 </html>

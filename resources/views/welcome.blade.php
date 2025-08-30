@@ -1,7 +1,7 @@
 <x-layout>
 
-    <div class="mx-auto max-w-7xl  border-l border-gray-300 px-6 lg:px-16 w-full text-black py-2">
-        <section>
+    <div class="mx-auto max-w-7xl md:border-l border-neutral-700 px-6 lg:px-16 w-full text-black py-2">
+        <section class="pb-32">
             <style>
                 /* Zeige immer 2 ganze Karten und die 3. zur Hälfte */
                 #slider {
@@ -15,8 +15,15 @@
                 }
 
                 #slider .slider-item {
-                    width: calc((100% - 32px) / 2); /* genau zwei Karten nebeneinander */
+                    width: calc(100% - 16px); /* eine Karte auf mobile */
                     height: 28rem;
+                }
+
+                @media (min-width: 768px) {
+                    /* md */
+                    #slider .slider-item {
+                        width: calc((100% - 32px) / 2); /* zwei Karten nebeneinander */
+                    }
                 }
 
                 @media (min-width: 1024px) {
@@ -29,9 +36,33 @@
             <!-- Hauptcontainer mit relativer Positionierung für die Buttons -->
             <div class="relative mx-auto mt-32">
 
+                <div class="relative text-5xl col-span-2 text-gray-900">
+                    <div
+                        class="absolute inset-y-0 -left-6 lg:-left-16 border-l-[3px] border-black pointer-events-none hidden md:block"></div>
+                    Turning Use Cases into Business Growth
+                </div>
+                <div class="pt-8">
+                    <div class="grid lg:grid-cols-2 gap-8">
+                        <div class="text-left text-xl/9 pt-8">
+                            We create innovative software solutions that captivate users and drive business growth.
+                            Leveraging our deep expertise in software engineering and our passion for product
+                            development, we bring bold ideas to life – working hand in hand with our clients to turn
+                            their vision into reality.
+                        </div>
+                        <div class="text-left text-xl/9 pt-8">
+                            We’ve had the privilege of working with businesses of all sizes – from innovative startups
+                            and growing mid-sized companies to industry-leading enterprises.  With a decade in the
+                            industry, we take pride in the path we’ve traveled. Over the years, we have successfully delivered
+                            over 30 projects.
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Slider Container -->
-                <div class="slider-container flex pb-3 gap-8 overflow-x-hidden" id="slider">
-                    <div class="slider-item group h-80 bg-gray-100 flex-shrink-0 rounded overflow-hidden relative">
+                <div class="slider-container flex pt-12 pb-3 gap-8 overflow-x-hidden" id="slider">
+                    <div
+                        class="slider-item group cursor-pointer h-80 bg-gray-100 flex-shrink-0 rounded overflow-hidden relative"
+                        @click="showProjectModal = true; projectTitle = 'E-Commerce Platform'; projectContent = 'Comprehensive e-commerce solution with advanced product management, integrated payment processing, and real-time inventory tracking.'">
                         <div
                             class="absolute inset-0 bg-center bg-cover opacity-80 transition-transform transition-opacity duration-300 ease-out group-hover:opacity-100 group-hover:scale-105"
                             style="background-image: url('https://auswall.com/img/home_leistungen.jpg');"></div>
@@ -47,9 +78,7 @@
                             </video>
                         </div>
                         <div class="absolute inset-x-0 top-0 p-3 lg:p-4 flex items-center justify-between z-30">
-                            <div class="text-white text-sm">Projekt <br/>
-                                asd
-                            </div>
+                            <div class="text-white text-sm">E-Commerce<br/>Platform</div>
                             <div class="flex gap-2">
                                 <button
                                     class="px-3 py-1 border border-white text-white/90 hover:text-white hover:bg-white/10 rounded-full text-xs">
@@ -66,7 +95,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="slider-item group h-80 bg-gray-100 flex-shrink-0 rounded overflow-hidden relative">
+                    <div
+                        class="slider-item group cursor-pointer h-80 bg-gray-100 flex-shrink-0 rounded overflow-hidden relative">
                         <div
                             class="absolute inset-0 bg-center bg-cover opacity-80 transition-transform transition-opacity duration-300 ease-out group-hover:opacity-100 group-hover:scale-105"
                             style="background-image: url('https://auswall.com/img/home_projekte.jpg');"></div>
@@ -98,7 +128,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="slider-item group h-80 bg-gray-100 flex-shrink-0 rounded overflow-hidden relative">
+                    <div
+                        class="slider-item group cursor-pointer h-80 bg-gray-100 flex-shrink-0 rounded overflow-hidden relative">
                         <div
                             class="absolute inset-0 bg-center bg-cover opacity-80 transition-transform transition-opacity duration-300 ease-out group-hover:opacity-100 group-hover:scale-105"
                             style="background-image: url('https://auswall.com/img/home_leistungen.jpg');"></div>
@@ -115,7 +146,7 @@
                         </div>
                         <div class="absolute inset-x-0 top-0 p-3 lg:p-4 flex items-center justify-between z-30">
                             <div class="text-white text-sm">Projekt <br/>
-                                asd
+                                Test
                             </div>
                             <div class="flex gap-2">
                                 <button
@@ -133,7 +164,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="slider-item group h-80 bg-gray-100 flex-shrink-0 rounded overflow-hidden relative">
+                    <div
+                        class="slider-item group cursor-pointer h-80 bg-gray-100 flex-shrink-0 rounded overflow-hidden relative">
                         <div
                             class="absolute inset-0 bg-center bg-cover opacity-80 transition-transform transition-opacity duration-300 ease-out group-hover:opacity-100 group-hover:scale-105"
                             style="background-image: url('https://auswall.com/img/home_projekte.jpg');"></div>
@@ -165,7 +197,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="slider-item group h-80 bg-gray-100 flex-shrink-0 rounded overflow-hidden relative">
+                    <div
+                        class="slider-item group cursor-pointer h-80 bg-gray-100 flex-shrink-0 rounded overflow-hidden relative">
                         <div
                             class="absolute inset-0 bg-center bg-cover opacity-80 transition-transform transition-opacity duration-300 ease-out group-hover:opacity-100 group-hover:scale-105"
                             style="background-image: url('https://auswall.com/img/home_leistungen.jpg');"></div>
@@ -182,7 +215,7 @@
                         </div>
                         <div class="absolute inset-x-0 top-0 p-3 lg:p-4 flex items-center justify-between z-30">
                             <div class="text-white text-sm">Projekt <br/>
-                                asd
+                                Test
                             </div>
                             <div class="flex gap-2">
                                 <button
@@ -200,7 +233,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="slider-item group h-80 bg-gray-100 flex-shrink-0 rounded overflow-hidden relative">
+                    <div
+                        class="slider-item group cursor-pointer h-80 bg-gray-100 flex-shrink-0 rounded overflow-hidden relative">
                         <div
                             class="absolute inset-0 bg-center bg-cover opacity-80 transition-transform transition-opacity duration-300 ease-out group-hover:opacity-100 group-hover:scale-105"
                             style="background-image: url('https://auswall.com/img/home_projekte.jpg');"></div>
@@ -421,24 +455,24 @@
         </section>
     </div>
 
-    <div class="relative mx-auto max-w-7xl  border-l border-gray-300 px-6 lg:px-16 w-full text-black py-36">
+    <div class="relative mx-auto max-w-7xl md:border-l border-neutral-700 px-6 lg:px-16 w-full text-black py-36">
         <div class="relative text-5xl col-span-2 text-gray-900">
-            <div class="absolute inset-y-0 -left-6 lg:-left-16 border-l-[3px] border-black pointer-events-none"></div>
+            <div class="absolute inset-y-0 -left-6 lg:-left-16 border-l-[3px] border-black pointer-events-none hidden md:block"></div>
             Engineering & Consulting Services
         </div>
         <div class="pt-8" x-data="{ open:false, title:'', text:'' }" @keydown.escape.window="open=false">
             <div class="grid lg:grid-cols-2 gap-8">
-                <div class="text-left text-lg leading-8">
-                    We craft high-quality, tailor-made software with precision in code, design, processes, and the overall product. We test rigorously and integrate user feedback to shape digital products that meet end-user needs and deliver on ambitious KPIs.
+                <div class="text-left text-xl/9 pt-8">
+                    We craft high-quality, tailor-made software with precision in code, design and processes. We test rigorously and integrate user feedback to shape digital products that meet end-user needs and deliver on ambitious KPIs.
                 </div>
-                <div class="text-left text-lg leading-8">
-                    Our team brings together skilled software developers and UI/UX designers. With a decade in the
-                    industry, we take pride in the path we’ve traveled. Over the years, we have successfully delivered
-                    over 30 projects.
+                <div class="text-left text-xl/9 pt-8">
+                    Our team brings together skilled software developers and UI/UX designers. Our experience ranges from
+                    building small tools and custom adapters to delivering complex, multi-year software
+                    projects.
                 </div>
             </div>
 
-            <div class="grid grid-cols-4 gap-6 pt-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pt-12">
 
                 <div
                     class="group relative border-[3px] border-black p-8 text-center bg-white text-black transition-all duration-300 ease-out hover:bg-black hover:text-white hover:border-white ring-0 hover:ring-[6px] hover:ring-black hover:ring-offset-0 cursor-pointer"
@@ -553,40 +587,51 @@
                 </div>
             </div>
 
-            <!-- Modal -->
-            <div x-show="open" x-transition.opacity class="fixed inset-0 z-50 flex items-center justify-center p-6"
-                 aria-modal="true" role="dialog">
-                <div class="absolute inset-0 bg-black/60" @click="open=false"></div>
-                <div x-show="open" x-transition.scale.opacity
-                     class="relative w-full max-w-2xl bg-white text-black border-[3px] border-black shadow-[0_0_0_6px_#000]">
-                    <div class="flex items-start justify-between p-5 border-b border-black/20">
-                        <h3 class="text-2xl font-semibold" x-text="title || 'Project'">Project</h3>
-                        <button
-                            class="ml-4 inline-flex items-center justify-center border-[3px] border-black px-3 py-1 text-sm bg-white hover:bg-black hover:text-white transition-colors"
-                            @click="open=false" aria-label="Close">
-                            Close
-                        </button>
-                    </div>
-                    <div class="p-6 space-y-4">
-                        <p class="leading-7"
-                           x-text="text || 'This is example content. Replace with real project details such as context, goals, approach, stack and results.'"></p>
-                        <ul class="list-disc pl-6 text-sm">
-                            <li>Scope: Example scope line</li>
-                            <li>Stack: Tailwind CSS, Alpine.js, Laravel</li>
-                            <li>Outcome: Placeholder metrics and impact</li>
-                        </ul>
-                    </div>
-                    <div class="p-5 border-t border-black/20 flex justify-end">
-                        <a href="#"
-                           class="inline-flex items-center border-[3px] border-black bg-black text-white px-4 py-2 hover:bg-white hover:text-black transition-colors">View
-                            case</a>
-                    </div>
-                </div>
-            </div>
+            <x-modal show="open" title="title">
+                <p class="leading-7"
+                   x-text="text || 'This is example content. Replace with real project details such as context, goals, approach, stack and results.'"></p>
+                <ul class="list-disc pl-6 text-sm">
+                    <li>Scope: Example scope line</li>
+                    <li>Stack: Tailwind CSS, Alpine.js, Laravel</li>
+                    <li>Outcome: Placeholder metrics and impact</li>
+                </ul>
+            </x-modal>
         </div>
         <a class="underline mt-8  my-auto text-lg decoration-2 underline-offset-4" href="/services">
             > More
         </a>
+    </div>
+
+    <!-- Project Modal für Slider -->
+    <x-modal show="showProjectModal" title="projectTitle" maxWidth="3xl">
+        <div class="space-y-6">
+            <p class="text-lg leading-relaxed" x-text="projectContent"></p>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <h4 class="font-semibold text-lg mb-3">Technologie Stack</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-black text-white text-sm rounded-full">Laravel</span>
+                        <span class="px-3 py-1 bg-black text-white text-sm rounded-full">Vue.js</span>
+                        <span class="px-3 py-1 bg-black text-white text-sm rounded-full">MySQL</span>
+                        <span class="px-3 py-1 bg-black text-white text-sm rounded-full">Docker</span>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg mb-3">Projektdetails</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><strong>Dauer:</strong> 6 Monate</li>
+                        <li><strong>Team:</strong> 4 Entwickler</li>
+                        <li><strong>Status:</strong> Erfolgreich abgeschlossen</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-4 border-t">
+                <button class="bg-black text-white px-6 py-2 border-2 border-black hover:bg-white hover:text-black transition-colors">
+                    Projekt anfragen
+                </button>
+            </div>
+        </div>
+    </x-modal>
     </div>
 
 
