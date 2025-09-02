@@ -19,11 +19,13 @@
 
 </head>
 <body class="min-h-full overflow-x-hidden antialiased"
-      x-data="{showNavi: false, showContactModal: false, showProjectModal: false, projectTitle: '', projectContent: ''}">
+      x-data="{showNavi: false, showNaviFixed: false, showContactModal: false, showProjectModal: false, projectTitle: '', projectContent: '', isNavbarVisible: false}">
+
+<div class="bg-black">
 
 <x-navi></x-navi>
 
-<div class="relative h-full w-full transition-all duration-300 ease-in-out -mb-[20px]"
+<div class="relative bg-black h-full w-full transition-all duration-300 ease-in-out -mb-[20px]"
      style="-webkit-clip-path: polygon(0 0, 100% 0, 100% calc(100% - 4vw), 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - 4vw), 0 100%);"
      :class="{'mt-[561px]': showNavi}">
@@ -87,7 +89,7 @@
 
     </div>
 </div>
-</div>
+</div></div>
 
 {{$slot}}
 
