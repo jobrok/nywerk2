@@ -21,5 +21,3 @@ Route::get('/impressum', function () {
 Route::get('/datenschutz', function () {
     return view('datenschutz');
 })->name('datenschutz');
-
-
