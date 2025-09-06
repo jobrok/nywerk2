@@ -133,7 +133,8 @@
          x-transition:leave="transition-all duration-300"
          x-transition:leave-start="opacity-100 transform translate-y-0"
          x-transition:leave-end="opacity-0 transform -translate-y-full"
-         class="fixed top-0 left-0 right-0 z-50 bg-black"
+         class="fixed top-0 left-0 right-0 bottom-0 z-50 bg-black overflow-y-auto"
+         style="-webkit-overflow-scrolling: touch;"
          aria-hidden="true">
         <x-navigation-menu :isFixed="true" />
     </div>
